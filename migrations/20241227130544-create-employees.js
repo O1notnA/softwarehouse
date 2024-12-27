@@ -16,7 +16,7 @@ module.exports = {
             type: DataTypes.STRING,
             allowNull:false,
           },
-          hireDate:{
+          hire_date:{
             type: DataTypes.DATE,
             allowNull:false,
           },
