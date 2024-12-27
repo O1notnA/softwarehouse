@@ -5,7 +5,7 @@ Requisitos
 Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
 
 Docker (para executar os contêineres)
-Docker Compose (para gerenciar multi-contêineres)
+Docker Compose (para gerenciar múltiplos contêineres)
 Node.js (com NPM ou Yarn)
 Sequelize CLI (para gerenciar migrações e seeds)
 Passos para Configuração
@@ -15,11 +15,11 @@ Primeiro, é necessário criar o banco de dados MySQL utilizando o Docker. Para 
 bash
 Copiar código
 sudo docker-compose up -d
-Este comando irá:
+Este comando fará o seguinte:
 
 Baixar a imagem do MySQL (caso não esteja presente).
 Subir o contêiner do banco de dados.
-Mapear a porta 3307 para a porta 3306 do contêiner.
+Mapear a porta 3307 do host para a porta 3306 do contêiner.
 Criar o banco de dados softwarehouse com a senha 132456 para o usuário root.
 2. Criar Tabelas no Banco de Dados
 Após a criação do banco de dados, você pode utilizar o Sequelize CLI para rodar as migrações e criar as tabelas no banco de dados. Execute o seguinte comando para rodar as migrações:
@@ -27,15 +27,15 @@ Após a criação do banco de dados, você pode utilizar o Sequelize CLI para ro
 bash
 Copiar código
 npx sequelize-cli db:migrate
-Este comando vai aplicar as migrações e criar as tabelas necessárias no banco de dados softwarehouse.
+Esse comando vai aplicar as migrações e criar as tabelas necessárias no banco de dados softwarehouse.
 
 3. Popular as Tabelas com Dados de Demonstração
-Para popular as tabelas com dados de demonstração (seeds), utilize o comando abaixo:
+Após as migrações, para popular as tabelas com dados de demonstração (seeds), execute o seguinte comando:
 
 bash
 Copiar código
 npx sequelize-cli db:seed:all
-Esse comando irá rodar todos os arquivos de seed presentes no diretório seeders e popular o banco com dados de exemplo.
+Isso irá rodar todos os arquivos de seed presentes no diretório seeders e popular o banco com dados de exemplo.
 
 4. Verificar o Banco de Dados
 Após rodar as migrações e os seeds, você pode verificar se as tabelas e os dados foram criados corretamente. Para isso, acesse o contêiner do MySQL:
@@ -49,7 +49,7 @@ sql
 Copiar código
 USE softwarehouse;
 SHOW TABLES;
-Isso mostrará todas as tabelas do banco de dados softwarehouse.
+Isso mostrará todas as tabelas criadas no banco de dados softwarehouse.
 
 5. Parar os Contêineres
 Quando terminar de usar os contêineres, você pode pará-los com o seguinte comando:
@@ -57,4 +57,33 @@ Quando terminar de usar os contêineres, você pode pará-los com o seguinte com
 bash
 Copiar código
 sudo docker-compose down
-Isso irá parar e remover os contêineres, redes e volumes criados pelo Docker Compose.
+Este comando irá parar e remover os contêineres, redes e volumes criados pelo Docker Compose.
+
+Resumo dos Comandos
+Aqui está um resumo dos principais comandos utilizados no processo:
+
+Subir o contêiner do MySQL com Docker Compose:
+
+bash
+Copiar código
+sudo docker-compose up -d
+Rodar as migrações do Sequelize para criar as tabelas:
+
+bash
+Copiar código
+npx sequelize-cli db:migrate
+Popular as tabelas com dados de demonstração usando seeds:
+
+bash
+Copiar código
+npx sequelize-cli db:seed:all
+Acessar o MySQL dentro do contêiner:
+
+bash
+Copiar código
+sudo docker exec -it mysql mysql -u root -p132456
+Parar e remover os contêineres com Docker Compose:
+
+bash
+Copiar código
+sudo docker-compose down
