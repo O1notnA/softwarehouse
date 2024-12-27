@@ -6,13 +6,13 @@ module.exports = {
     await queryInterface.bulkInsert('Employees', [{
       name: 'Antonio',
       position_id: 2,
-      hireDate: new Date("2012-02-01"),
+      hire_date: new Date("2012-02-01"),
       created_at: new Date(),
       updated_at: new Date()}, 
   {
       name: 'Lucas',
       position_id:1,
-      hireDate: new Date("2012-02-01"),
+      hire_date: new Date("2012-02-01"),
       created_at: new Date(),
       updated_at: new Date(), 
   }])
