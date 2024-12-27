@@ -6,11 +6,13 @@ module.exports = (sequelize, DataTypes) => {
         name: DataTypes.STRING,
         hire_date: DataTypes.DATE,
         position_id: {
-            type: DataTypes.INTERGER,
+            type: DataTypes.INTEGER,
             field: "position_id"
         }
     });
     Employee.associate = function(models){
         Employee.belongsTo(models.Position, {foreignKey: "position_id"})
     }
+
+    return Employee;
 }

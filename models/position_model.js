@@ -9,4 +9,6 @@ module.exports = (sequelize, DataTypes) => {
     Positions.associate = function(models){
         Positions.hasMany(models.Employee, {foreignKey:'position_id'})
     }
+
+    return Positions;
 }
