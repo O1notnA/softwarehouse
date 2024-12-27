@@ -17,7 +17,7 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull:false,
       },
-      salay:{
+      salary:{
         type: DataTypes.FLOAT,
         allowNull:false,
       },
