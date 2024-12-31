@@ -1,4 +1,5 @@
 Setup do Ambiente e Banco de Dados com Docker e Sequelize
+
 Este guia descreve como configurar o ambiente, criar o banco de dados e popular as tabelas usando Docker e Sequelize.
 
 Requisitos
@@ -8,27 +9,16 @@ Docker (para executar os contêineres)
 Docker Compose (para gerenciar multi-contêineres)
 Node.js (com NPM ou Yarn)
 Sequelize CLI (para gerenciar migrações e seeds)
+
 Passos para Configuração
 
 1. Subir o Contêiner do Banco de Dados com Docker Compose
 Primeiro, é necessário criar o banco de dados MySQL utilizando o Docker. Para isso, execute o seguinte comando na raiz do projeto:
+    sudo docker-compose up -d
+ 
+2. Após a criação do container, se faz necessário migrar as tabelas para o banco;
+    npx sequelize-cli db:migrate
 
-sudo docker-compose up -d
-Este comando irá:
+3. Em seguida este comando popula as tabelas com as informaçẽos pré setadas
+    npx sequelize-cli db:seed:all
 
-Baixar a imagem do MySQL (caso não esteja presente).
-Subir o contêiner do banco de dados.
-Mapear a porta 3307 para a porta 3306 do contêiner.
-Criar o banco de dados softwarehouse com a senha 132456 para o usuário root.
-
-2. Criar Tabelas no Banco de Dados
-Após a criação do banco de dados, você pode utilizar o Sequelize CLI para rodar as migrações e criar as tabelas no banco de dados. Execute o seguinte comando para rodar as migrações:
-
-npx sequelize-cli db:migrate
-Este comando vai aplicar as migrações e criar as tabelas necessárias no banco de dados softwarehouse.
-
-3. Popular as Tabelas com Dados de Demonstração
-Para popular as tabelas com dados de demonstração (seeds), utilize o comando abaixo:
-
-npx sequelize-cli db:seed:all
-Esse comando irá rodar todos os arquivos de seed presentes no diretório seeders e popular o banco com dados de exemplo.
