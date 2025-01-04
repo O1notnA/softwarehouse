@@ -1,8 +1,7 @@
 const express = require('express');
-const positionRouter = require("./routes/position_route")
-const employeeRouter = require("./routes/employee_route")
-const userRouter = require("./routes/user_router")
-
+const positionRouter = require("./routes/position_route");
+const employeeRouter = require("./routes/employee_route");
+const userRouter = require("./routes/user_router");
 
 const app = express();
 

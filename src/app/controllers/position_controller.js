@@ -1,5 +1,5 @@
 //const { Model, HostNotFoundError } = require("sequelize");
-const {Position} = require ("../models")
+const {Position} = require  ('../../model/models');
 
 const findAllPositions = async(req, res)=>{
     try{

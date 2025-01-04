@@ -1,6 +1,6 @@
-const {User} = require('../models');
+const {User} = require  ('../../model/models');
 const bcrypt = require('bcrypt');
-const auth = require('../utils/auth');
+const auth = require('../../config/utils/auth');
 
 
 const login_user = async (req, res) =>{

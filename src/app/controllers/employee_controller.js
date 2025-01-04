@@ -1,4 +1,4 @@
-const {Employee, Position} = require ("../models")
+const {Employee, Position} = require ('../../model/models');
 
 const findAllEmployees = async(req, res)=>{
     try{

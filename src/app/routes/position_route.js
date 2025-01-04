@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {Position} = require("../models");
+//const {Position} = require("../models");
 const { where } = require('sequelize');
 const positionController = require("../controllers/position_controller");
 

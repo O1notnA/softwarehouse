@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const employeeController = require("../controllers/employee_controller")
-const authMiddleware = require("../middleware/middleware")
+const employeeController = require("../controllers/employee_controller");
+const authMiddleware = require("../../config/middleware/middleware");
+
 
 router.get("/",authMiddleware, employeeController.findAllEmployees);
 router.post("/",authMiddleware, employeeController.createEmployee);
